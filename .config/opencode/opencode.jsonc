@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "plugin": [ "context-mode" ],
+  "mcp": {
+    "graymatter": {
+      "type": "local",
+      "command": [ "graymatter", "mcp", "serve", "--dir", "/home/xander/.graymatter" ],
+      "enabled": true
+    },
+    "codegraph": {
+      "type": "local",
+      "command": [ "codegraph", "serve", "--mcp" ],
+      "enabled": true
+    }
+  }
+}
