@@ -1,0 +1,5 @@
+npm/
+!npm/package.json
+sessions/
+auth.json
+models-store.json
