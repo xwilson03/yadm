@@ -40,18 +40,33 @@ end
 
 function M.show_on_empty(args)
     local buf = args.buf
-    vim.schedule(function()
-        if vim.api.nvim_buf_is_valid(buf)
-            and vim.api.nvim_buf_get_name(buf) == ""
-            and vim.bo[buf].buflisted
-            and vim.bo[buf].buftype == ""
-        then
-            if #vim.fn.getbufinfo({ buflisted = true }) == 1 then
-                require("alpha").start(false)
-                vim.api.nvim_buf_delete(buf, { force = true })
+    if vim.api.nvim_buf_is_valid(buf)
+        and vim.api.nvim_buf_get_name(buf) == ""
+        and vim.bo[buf].buflisted
+        and vim.bo[buf].buftype == ""
+    then
+        if #vim.fn.getbufinfo({ buflisted = true }) == 1 then
+
+            local target
+            for _, win in ipairs(vim.api.nvim_list_wins()) do
+                if vim.api.nvim_win_is_valid(win)
+                    and vim.api.nvim_win_get_buf(win) == buf
+                then
+                    target = win
+                    break
+                end
             end
+
+            if not target then
+                return
+            end
+            if target ~= vim.api.nvim_get_current_win() then
+                vim.api.nvim_set_current_win(target)
+            end
+            require("alpha").start(false)
+            vim.api.nvim_buf_delete(buf, { force = true })
         end
-    end)
+    end
 end
 
 return M
