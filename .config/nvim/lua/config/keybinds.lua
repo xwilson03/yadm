@@ -21,7 +21,5 @@ vim.keymap.set("n", "<leader>t", function() vim.cmd("ToggleTerm " .. vim.v.count
 
 vim.keymap.set("n", "<leader>n", ":Neotree toggle<CR>", { desc = "Toggle file tree" })
 vim.keymap.set("n", "<leader>p", ":Telescope workspaces<CR>", { desc = "Find workspaces" })
-vim.keymap.set("n", "<leader>g", ":Neogit<CR>", { desc = "Open Neogit" })
-vim.keymap.set("n", "<leader>G", function() require("lib.gitgraph").open() end, { desc = "Show git graph" })
 vim.keymap.set("n", "<leader>d", function() require("lib.diffview").toggle() end, { desc = "Toggle Diffview" })
 
