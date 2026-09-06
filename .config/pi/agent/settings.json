@@ -1,6 +1,7 @@
 {
   "lastChangelogVersion": "0.84.2",
   "theme": "dark",
+  "npmCommand": ["bun"],
   "defaultProvider": "opencode",
   "defaultModel": "deepseek-v4-flash-free",
   "defaultThinkingLevel": "high"
