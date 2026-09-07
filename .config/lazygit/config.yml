@@ -1,0 +1,38 @@
+git:
+  diffRenderers:
+    - colorArg: always
+      command: delta --paging=never --side-by-side
+gui:
+  theme:
+    activeBorderColor:
+      - '#82AAFF'
+      - bold
+    inactiveBorderColor:
+      - '#2D3A4A'
+    optionsTextColor:
+      - '#B0BEC5'
+    selectedLineBgColor:
+      - '#2D3A4A'
+    cherryPickedCommitBgColor:
+      - '#2D3A4A'
+    cherryPickedCommitFgColor:
+      - '#82AAFF'
+    unstagedChangesColor:
+      - '#F07178'
+    defaultFgColor:
+      - '#B0BEC5'
+    searchingActiveBorderColor:
+      - '#82AAFF'
+
+# Material Deep Ocean colors:
+# bg:       #1F2335
+# fg:       #B0BEC5
+# blue:     #82AAFF
+# green:    #A8DBA8
+# yellow:   #FFEB95
+# red:      #F07178
+# pink:     #FF8F77
+# purple:   #C792EA
+# orange:   #F78C6C
+# teal:     #7FDBDB
+# surface:  #2D3A4A
