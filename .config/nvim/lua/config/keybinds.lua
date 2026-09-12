@@ -13,9 +13,6 @@ vim.keymap.set("n", "<leader>e", function() require("lib.cycle").close_and_cycle
 vim.keymap.set("n", "<Tab>", function() require("lib.cycle").cycle("next") end, { desc = "Next buffer/terminal" })
 vim.keymap.set("n", "<S-Tab>", function() require("lib.cycle").cycle("prev") end, { desc = "Previous buffer/terminal" })
 
-vim.keymap.set("n", "<C-j>", function() require("lib.cursors").add_below() end, { desc = "Add cursor below" })
-vim.keymap.set("n", "<C-k>", function() require("lib.cursors").add_above() end, { desc = "Add cursor above" })
-
 vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>t", function() vim.cmd("ToggleTerm " .. vim.v.count) end, { desc = "Toggle terminal" })
 
