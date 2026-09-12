@@ -16,5 +16,12 @@ return {
         require("workspaces").setup(opts)
         require("workspaces").sync_dirs()
         require("telescope").load_extension("workspaces")
+
+        vim.api.nvim_create_autocmd("VimLeavePre", {
+            group = vim.api.nvim_create_augroup("workspaces_persist", { clear = true }),
+            callback = function()
+                require("lib.workspace").save_session()
+            end,
+        })
     end,
 }
