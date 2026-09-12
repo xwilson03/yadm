@@ -1,12 +1,12 @@
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = 'unnamedplus'    -- use system clipboard
 
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
+vim.opt.expandtab = true             -- use spaces not tabs
+vim.opt.tabstop = 4                  -- tab width = 4
 
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.cursorline = true
-vim.opt.cursorlineopt = "number"
+vim.opt.number = true                -- show line numbers
+vim.opt.relativenumber = true        -- use relative line numbers
+vim.opt.cursorline = true            -- highlight current line...
+vim.opt.cursorlineopt = "number"       -- ...but just the line number 
 
-vim.o.cmdheight = 0
-require("vim._core.ui2").enable({})
+vim.o.cmdheight = 0                  -- hide cmdline bar when not in use
+require("vim._core.ui2").enable({})  -- enable UI2 (experimental, for cmd/msg/alerts)
