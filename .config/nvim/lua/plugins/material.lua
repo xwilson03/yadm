@@ -3,8 +3,7 @@ return {
     lazy = false,
     config = function()
         vim.g.material_style = 'deep ocean'
-        require('material').setup({
-        })
+        require('material').setup({})
         vim.cmd('colorscheme material')
     end,
 }

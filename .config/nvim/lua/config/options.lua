@@ -1,13 +1,12 @@
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.autoindent = true
+vim.opt.clipboard = 'unnamedplus'
 
-vim.o.hidden = true
-vim.opt.shortmess:append("I")
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
 
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.cursorlineopt = "number"
-vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#ffba00", bold = true })
+
+vim.o.cmdheight = 0
+require("vim._core.ui2").enable({})
