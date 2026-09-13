@@ -16,10 +16,10 @@ vim.keymap.set("n", "<S-Tab>", ":tabnext<CR>", { desc = "Next tab" })
 
 -- Buffers
 vim.keymap.set("n", "<leader>t", ":terminal<CR>i", { desc = "Open Terminal" })
+vim.keymap.set("n", "<leader>g", ":terminal lazygit<CR>i", { desc = "Open Lazygit" })
 vim.keymap.set("n", "<leader>e", function() require("lib.buffers").bdelete() end, { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>d", function() require("lib.diffview").toggle() end, { desc = "Toggle Diffview" })
 vim.keymap.set("n", "<leader>n", ":Neotree toggle<CR>", { desc = "Toggle file tree" })
 
 vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]],             { desc = "Exit terminal mode" })
 vim.keymap.set("n", "<leader>p", ":Telescope workspaces<CR>", { desc = "Search workspaces" })
-
