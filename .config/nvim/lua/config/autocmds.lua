@@ -3,11 +3,22 @@ vim.api.nvim_create_autocmd("TermClose", {
     callback = function() vim.cmd("bdelete!") end
 })
 
--- Give terminals friendly buffer names
+-- Give terminals friendly, unique buffer names
 vim.api.nvim_create_autocmd("TermOpen", {
     callback = function()
-        local cmd = vim.api.nvim_buf_get_name(0):match("term://.-//%d+:(.+)$")
-        if cmd then vim.api.nvim_buf_set_name(0, vim.fn.fnamemodify(cmd, ":t")) end
+        local name = vim.api.nvim_buf_get_name(0)
+        local cmd = name:match("^term://.-//%d+:(.*)$")
+        if not cmd then return end
+        cmd = cmd:gsub(":%d+$", "") -- strip :{index}
+
+        local base = vim.fn.fnamemodify(cmd, ":t")
+        local name = base
+        local n = 1
+        while vim.fn.bufexists(name) ~= 0 do
+            name = ("%s (%d)"):format(base, n)
+            n = n + 1
+        end
+        vim.api.nvim_buf_set_name(0, name)
     end,
 })
 
