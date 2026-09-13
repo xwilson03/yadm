@@ -19,7 +19,8 @@ vim.keymap.set("n", "<leader>p", ":Telescope workspaces<CR>", { desc = "Search w
 
 -- Buffers
 vim.keymap.set("n", "<leader>t", ":terminal<CR>i", { desc = "Open Terminal" })
-vim.keymap.set("n", "<leader>g", ":terminal lazygit<CR>i", { desc = "Open Lazygit" })
+
+vim.keymap.set("n", "<leader>g", function() require("lib.terminals").surface("lazygit", "lazygit") end, { desc = "Open Lazygit" })
 vim.keymap.set("n", "<leader>e", ":bdelete!<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>d", function() require("lib.diffview").toggle() end, { desc = "Toggle Diffview" })
 vim.keymap.set("n", "<leader>n", ":Neotree toggle<CR>", { desc = "Toggle file tree" })
