@@ -12,10 +12,10 @@ vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Focus above" })
 vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Focus right" })
 
 vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { desc = "Next tab" })
-vim.keymap.set("n", "<S-Tab>", function() require("lib.cycle").bnext() end, { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", function() require("lib.buffers").bnext() end, { desc = "Next buffer" })
 
 -- Buffers
-vim.keymap.set("n", "<leader>e", function() require("lib.cycle").bdelete() end, { desc = "Close buffer" })
+vim.keymap.set("n", "<leader>e", function() require("lib.buffers").bdelete() end, { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>t", function() vim.cmd("ToggleTerm " .. vim.v.count)  end, { desc = "Toggle Terminal" })
 vim.keymap.set("n", "<leader>d", function() require("lib.diffview").toggle()       end, { desc = "Toggle Diffview" })
 vim.keymap.set("n", "<leader>n", ":Neotree toggle<CR>", { desc = "Toggle file tree" })
