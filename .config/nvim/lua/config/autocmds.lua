@@ -1,5 +1,14 @@
+-- Delete terminals when process exits
 vim.api.nvim_create_autocmd("TermClose", {
     callback = function() vim.cmd("bdelete!") end
+})
+
+-- Give terminals friendly buffer names
+vim.api.nvim_create_autocmd("TermOpen", {
+    callback = function()
+        local cmd = vim.api.nvim_buf_get_name(0):match("term://.-//%d+:(.+)$")
+        if cmd then vim.api.nvim_buf_set_name(0, vim.fn.fnamemodify(cmd, ":t")) end
+    end,
 })
 
 -- Auto-close unmodified file buffers if not visible anywhere
