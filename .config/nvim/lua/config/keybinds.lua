@@ -23,3 +23,12 @@ vim.keymap.set("n", "<leader>g", ":terminal lazygit<CR>i", { desc = "Open Lazygi
 vim.keymap.set("n", "<leader>e", ":bdelete!<CR>", { desc = "Close buffer" })
 vim.keymap.set("n", "<leader>d", function() require("lib.diffview").toggle() end, { desc = "Toggle Diffview" })
 vim.keymap.set("n", "<leader>n", ":Neotree toggle<CR>", { desc = "Toggle file tree" })
+
+-- Harpoon
+vim.keymap.set("n", "<leader>a", function() require("harpoon"):list():add() end, { desc = "Harpoon: Add file" })
+vim.keymap.set("n", "<leader>o", function() require("harpoon").ui:toggle_quick_menu(require("harpoon"):list()) end, { desc = "Harpoon: Open list" })
+
+local function harpoon_jump(i) return function() require("harpoon"):list():select(i) end end
+for i = 1, 5 do
+    vim.keymap.set("n", "<leader>" .. i, harpoon_jump(i), { desc = ("Harpoon: Jump to slot %d"):format(i) })
+end
