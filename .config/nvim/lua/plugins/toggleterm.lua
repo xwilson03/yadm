@@ -1,4 +1,4 @@
 return {
     "akinsho/toggleterm.nvim",
-    opts = { direction = "float" },
+    opts = { direction = "tab" },
 }
