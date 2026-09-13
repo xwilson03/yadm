@@ -7,7 +7,7 @@ return {
     lazy = false,
     opts = {
         sources = { "filesystem" },
-        window = { position = "left", width = 40 },
+        window = { position = "float" },
         filesystem = { filtered_items = { visible = true } },
     },
 }

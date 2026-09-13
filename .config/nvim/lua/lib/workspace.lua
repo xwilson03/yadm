@@ -1,6 +1,5 @@
 local workspaces = require("workspaces")
 local resession = require("resession")
-local neo_tree = require("neo-tree.command")
 
 local function content_path(workspace_path)
     local name = workspace_path:gsub("/", "_"):gsub(":", "_")
@@ -55,7 +54,6 @@ function M.load_session(path)
     vim.notify("Saving workspace session (attach): " .. path)
     resession.save(path, { dir = "workspace", notify = false })
     load_content(path)
-    neo_tree.execute({ action = "focus" })
 end
 
 return M
