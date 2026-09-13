@@ -1,0 +1,11 @@
+/*
+!/.config/
+
+/.config/*
+!/.config/lazygit/
+!/.config/nvim/
+!/.config/yadm/
+
+!/.gitconfig
+!/.tmux.conf
+!/.zshrc
