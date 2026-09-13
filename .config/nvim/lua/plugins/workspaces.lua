@@ -4,12 +4,8 @@ return {
     event = "VeryLazy",
     opts = {
         hooks = {
-            open_pre = function()
-                require("lib.workspace").save_session()
-            end,
-            open = function(_, path)
-                require("lib.workspace").load_session(path)
-            end,
+            open_pre = function() require("lib.workspace").save_session() end,
+            open = function(_, path) require("lib.workspace").load_session(path) end,
         },
     },
     config = function(_, opts)
@@ -19,9 +15,7 @@ return {
 
         vim.api.nvim_create_autocmd("VimLeavePre", {
             group = vim.api.nvim_create_augroup("workspaces_persist", { clear = true }),
-            callback = function()
-                require("lib.workspace").save_session()
-            end,
+            callback = function() require("lib.workspace").save_session() end,
         })
     end,
 }
