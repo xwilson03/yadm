@@ -1,5 +1,3 @@
-local terms = require("toggleterm.terminal")
-
 local M = {}
 
 function M.bnext(direction)
