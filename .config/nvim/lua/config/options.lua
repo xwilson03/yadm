@@ -5,6 +5,8 @@ opt.clipboard = 'unnamedplus'        -- use system clipboard
 opt.expandtab = true                 -- use spaces not tabs
 opt.tabstop = 4                      -- tab width = 4
 
+opt.wrap = false                     -- disable linewrap
+
 opt.number = true                    -- show line numbers
 opt.relativenumber = true            -- use relative line numbers
 opt.cursorline = true                -- highlight current line...
