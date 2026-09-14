@@ -13,7 +13,7 @@ return {
             {
                 event = "file_open_requested",
                 handler = function(args)
-                    vim.api.nvim_set_current_buf(vim.fn.bufadd(args.path))
+                    vim.cmd("edit " .. vim.fn.fnameescape(args.path))
                     return { handled = true }
                 end,
             },
