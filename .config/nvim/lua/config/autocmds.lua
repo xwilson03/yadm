@@ -1,8 +1,10 @@
 -- Delete terminals when process exits
 vim.api.nvim_create_autocmd("TermClose", {
     callback = function(args)
-        if not vim.api.nvim_buf_is_valid(args.buf) then return end
-        vim.api.nvim_buf_delete(args.buf, { force = true })
+        vim.schedule(function()
+            if not vim.api.nvim_buf_is_valid(args.buf) then return end
+            vim.api.nvim_buf_delete(args.buf, { force = true })
+        end)
     end,
 })
 
