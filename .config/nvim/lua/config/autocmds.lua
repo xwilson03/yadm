@@ -49,3 +49,10 @@ vim.api.nvim_create_autocmd("BufWinLeave", {
         end)
     end,
 })
+
+-- Auto-recover by default when a swapfile is present (preserve-quit)
+vim.api.nvim_create_autocmd("SwapExists", {
+    callback = function()
+        vim.v.swapchoice = "r"
+    end,
+})

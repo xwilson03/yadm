@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- General
-vim.keymap.set("n", "<leader>q", ":qa!<CR>", { desc = "Quit neovim" })
+vim.keymap.set("n", "<leader>q", ":preserve<CR>", { desc = "Quit with swapfiles" })
 vim.keymap.set("n", "<leader>w", ":w<CR>",   { desc = "Save buffer" })
 vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
