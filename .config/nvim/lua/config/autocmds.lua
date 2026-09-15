@@ -1,3 +1,8 @@
+-- Stash modified buffers' swapfiles on exit
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    callback = function() require("lib.swapstash").stash() end
+})
+
 -- Delete terminals when process exits
 vim.api.nvim_create_autocmd("TermClose", {
     callback = function(args)
@@ -50,7 +55,18 @@ vim.api.nvim_create_autocmd("BufWinLeave", {
     end,
 })
 
--- Auto-recover by default when a swapfile is present (preserve-quit)
+-- Force undofile read for modified buffers
+vim.api.nvim_create_autocmd("BufReadPost", {
+    callback = function(args)
+        if not vim.bo[args.buf].modified then return end
+        local uf = vim.fn.undofile(args.file)
+        if vim.fn.filereadable(uf) == 1 then
+            vim.cmd("silent! rundo " .. vim.fn.fnameescape(uf))
+        end
+    end
+})
+
+-- Auto-recover by default when a swapfile is present
 vim.api.nvim_create_autocmd("SwapExists", {
     callback = function()
         vim.v.swapchoice = "r"
