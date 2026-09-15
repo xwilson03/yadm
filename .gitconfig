@@ -1,5 +1,6 @@
 [pull]
-    rebase = false
+    rebase = true
+    ff = only
 
 [init]
     defaultBranch = main
