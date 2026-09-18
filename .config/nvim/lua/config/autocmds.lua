@@ -69,6 +69,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Auto-recover by default when a swapfile is present
 vim.api.nvim_create_autocmd("SwapExists", {
     callback = function()
+        vim.g.swapname = vim.v.swapname
         vim.v.swapchoice = "r"
     end,
+})
+
+-- Auto-delete swapfiles after recovery
+vim.api.nvim_create_autocmd("BufReadPost", {
+    callback = function(args)
+        if not vim.g.swapname then return end
+        vim.fn.delete(swapname)
+    end
 })
