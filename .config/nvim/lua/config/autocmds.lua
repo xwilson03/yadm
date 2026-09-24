@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
 })
 
--- Auto-recover by default when a swapfile is present
+-- Auto-recover swapfiles and tag for deletion
 vim.api.nvim_create_autocmd("SwapExists", {
     callback = function()
         vim.g.swapname = vim.v.swapname
@@ -74,10 +74,18 @@ vim.api.nvim_create_autocmd("SwapExists", {
     end,
 })
 
--- Auto-delete swapfiles after recovery
+-- Auto-delete swapfiles post-recovery
 vim.api.nvim_create_autocmd("BufReadPost", {
     callback = function(args)
-        if not vim.g.swapname then return end
-        vim.fn.delete(swapname)
+
+        local path = vim.g.swapname
+        vim.g.swapname = nil
+        if not path then return end
+
+        vim.schedule(function()
+            if path ~= vim.fn.swapname(args.buf) and vim.fn.filereadable(path) == 1 then
+                os.remove(path)
+            end
+        end)
     end
 })

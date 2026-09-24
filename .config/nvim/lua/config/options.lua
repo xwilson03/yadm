@@ -2,9 +2,12 @@ local opt = vim.opt
 
 opt.clipboard = 'unnamedplus'        -- use system clipboard
 opt.undofile = true                  -- persistent undo history
+opt.autoread = true                  -- reread files when changes are detected
 
-opt.expandtab = true                 -- use spaces not tabs
-opt.tabstop = 4                      -- tab width = 4
+opt.expandtab = true                 -- use spaces not \t
+opt.tabstop = 4                      -- visual width of \t
+opt.shiftwidth = 0                   -- ALL indentation; 0 = use \t visual width
+opt.softtabstop = -1                 -- indent snap-to; -1 = snap to shiftwidth
 opt.wrap = false                     -- disable linewrap
 opt.fcs = 'eob: '                    -- hide '~' chars after end-of-file
 
