@@ -3,6 +3,22 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
+
+# Enable vim mode
+bindkey -v
+export KEYTIMEOUT=1 # Esc timeout = 10ms
+
+LAST_VI_MODE="viins"
+
+# Capture mode when executing command
+function zle-line-finish { LAST_VI_MODE=$KEYMAP }
+zle -N zle-line-finish
+
+# Restore captured mode on new prompt line
+function zle-line-init { zle -K "$LAST_VI_MODE" }
+zle -N zle-line-init
+
+
 zstyle ':completion:*' auto-description 'specify: %d'
 zstyle ':completion:*' completer _expand _complete _correct _approximate
 zstyle ':completion:*' format 'Completing %d'
