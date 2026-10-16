@@ -6,11 +6,26 @@ vim.keymap.set("n", "<leader>q", ":qa!<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>w", ":w<CR>",   { desc = "Save buffer" })
 vim.keymap.set("t", "<M-Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
--- Navigation
-vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Focus left" })
-vim.keymap.set("n", "<leader>j", "<C-w>j", { desc = "Focus below" })
-vim.keymap.set("n", "<leader>k", "<C-w>k", { desc = "Focus above" })
-vim.keymap.set("n", "<leader>l", "<C-w>l", { desc = "Focus right" })
+-- Navigation (Integrated with Tmux)
+vim.keymap.set("n", "<M-h>", function() require("tmux").move_left() end, { desc = "Focus left" })
+vim.keymap.set("n", "<M-j>", function() require("tmux").move_bottom() end, { desc = "Focus below" })
+vim.keymap.set("n", "<M-k>", function() require("tmux").move_top() end, { desc = "Focus above" })
+vim.keymap.set("n", "<M-l>", function() require("tmux").move_right() end, { desc = "Focus right" })
+vim.keymap.set("n", "<M-n>", function() require("tmux").next_window() end, { desc = "Next window" })
+vim.keymap.set("n", "<M-p>", function() require("tmux").previous_window() end, { desc = "Previous window" })
+
+-- Resize (Integrated with Tmux)
+vim.keymap.set("n", "<C-h>", function() require("tmux").resize_left() end, { desc = "Resize left" })
+vim.keymap.set("n", "<C-j>", function() require("tmux").resize_bottom() end, { desc = "Resize below" })
+vim.keymap.set("n", "<C-k>", function() require("tmux").resize_top() end, { desc = "Resize above" })
+vim.keymap.set("n", "<C-l>", function() require("tmux").resize_right() end, { desc = "Resize right" })
+
+-- Swap (Integrated with Tmux)
+vim.keymap.set("n", "<C-M-h>", function() require("tmux").swap_left() end, { desc = "Swap left" })
+vim.keymap.set("n", "<C-M-j>", function() require("tmux").swap_bottom() end, { desc = "Swap below" })
+vim.keymap.set("n", "<C-M-k>", function() require("tmux").swap_top() end, { desc = "Swap above" })
+vim.keymap.set("n", "<C-M-l>", function() require("tmux").swap_right() end, { desc = "Swap right" })
+
 
 vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { desc = "Next tab" })
 
