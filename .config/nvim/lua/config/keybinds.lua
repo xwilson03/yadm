@@ -4,7 +4,7 @@ vim.g.maplocalleader = " "
 -- General
 vim.keymap.set("n", "<leader>q", ":qa!<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>w", ":w<CR>",   { desc = "Save buffer" })
-vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<M-Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
 -- Navigation
 vim.keymap.set("n", "<leader>h", "<C-w>h", { desc = "Focus left" })
