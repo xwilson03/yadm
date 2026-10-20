@@ -6,6 +6,15 @@ vim.keymap.set("n", "<leader>q", ":qa!<CR>", { desc = "Quit" })
 vim.keymap.set("n", "<leader>w", ":w<CR>",   { desc = "Save buffer" })
 vim.keymap.set("t", "<M-Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
 
+-- Disable auto-yank on non-delete
+vim.keymap.set({"n", "v"}, "x", '"_x', { desc = "Delete chars without auto-yank" })
+vim.keymap.set({"n", "v"}, "X", '"_X', { desc = "Delete chars behind without auto-yank" })
+vim.keymap.set({"n", "v"}, "c", '"_c', { desc = "Change without auto-yank" })
+vim.keymap.set({"n", "v"}, "C", '"_C', { desc = "Change line without auto-yank" })
+vim.keymap.set({"n", "v"}, "s", '"_s', { desc = "Substitute without auto-yank" })
+vim.keymap.set({"n", "v"}, "S", '"_S', { desc = "Substitute line without auto-yank" })
+vim.keymap.set({"v"},      "p", 'P',   { desc = "Visual paste without auto-yank" })
+
 -- Navigation (Integrated with Tmux)
 vim.keymap.set("n", "<M-h>", function() require("tmux").move_left() end, { desc = "Focus left" })
 vim.keymap.set("n", "<M-j>", function() require("tmux").move_bottom() end, { desc = "Focus below" })
