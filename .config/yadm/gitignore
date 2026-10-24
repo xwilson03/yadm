@@ -2,6 +2,7 @@
 !/.config/
 
 /.config/*
+!/.config/ghostty/
 !/.config/lazygit/
 !/.config/nvim/
 !/.config/yadm/
