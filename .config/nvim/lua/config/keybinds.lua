@@ -40,6 +40,7 @@ vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { desc = "Next tab" })
 
 vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>",    { desc = "Search buffers" })
 vim.keymap.set("n", "<leader>p", ":Telescope workspaces<CR>", { desc = "Search workspaces" })
+vim.keymap.set("n", "<leader>m", function() require("aerial").toggle() end, { desc = "Search symbols" })
 
 -- Buffers
 vim.keymap.set("n", "<leader>t", ":terminal<CR>i", { desc = "Open Terminal" })
