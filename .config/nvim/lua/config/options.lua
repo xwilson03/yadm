@@ -5,6 +5,7 @@ opt.clipboard = 'unnamedplus'        -- use system clipboard
 opt.undofile = true                  -- persistent undo history
 opt.autoread = true                  -- reread files when changes are detected
 opt.scrolloff = 3                    -- # lines kept between cursor and edge of screen
+opt.signcolumn = "yes:1"             -- always show sign column (lsp errors/warnings)
 
 -- Code Fold
 opt.foldmethod = "expr"
