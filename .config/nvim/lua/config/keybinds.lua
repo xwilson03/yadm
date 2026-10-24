@@ -20,8 +20,6 @@ vim.keymap.set("n", "<M-h>", function() require("tmux").move_left() end, { desc 
 vim.keymap.set("n", "<M-j>", function() require("tmux").move_bottom() end, { desc = "Focus below" })
 vim.keymap.set("n", "<M-k>", function() require("tmux").move_top() end, { desc = "Focus above" })
 vim.keymap.set("n", "<M-l>", function() require("tmux").move_right() end, { desc = "Focus right" })
-vim.keymap.set("n", "<M-n>", function() require("tmux").next_window() end, { desc = "Next window" })
-vim.keymap.set("n", "<M-p>", function() require("tmux").previous_window() end, { desc = "Previous window" })
 
 -- Resize (Integrated with Tmux)
 vim.keymap.set("n", "<C-h>", function() require("tmux").resize_left() end, { desc = "Resize left" })
