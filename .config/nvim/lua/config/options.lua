@@ -6,6 +6,11 @@ opt.undofile = true                  -- persistent undo history
 opt.autoread = true                  -- reread files when changes are detected
 opt.scrolloff = 3                    -- # lines kept between cursor and edge of screen
 
+-- Code Fold
+opt.foldmethod = "expr"
+opt.foldexpr = "v:lua.vim.lsp.foldexpr()"
+opt.foldlevelstart = 99              -- show all code by default
+
 -- Whitespace
 opt.expandtab = true                 -- use spaces not \t
 opt.tabstop = 4                      -- visual width of \t
