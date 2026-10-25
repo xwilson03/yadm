@@ -89,3 +89,15 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         end)
     end
 })
+
+-- Show diagnostic messages on hover
+vim.api.nvim_create_autocmd("CursorHold", {
+  buffer = bufnr,
+  callback = function()
+    vim.diagnostic.open_float(nil, {
+        focusable = false,
+        border = 'rounded',
+        scope = 'cursor'
+    })
+  end
+})
