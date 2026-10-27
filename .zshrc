@@ -59,3 +59,4 @@ export PATH="$PATH:$GOBIN"
 export PATH="/opt/nvim-linux-x86_64/bin:$PATH"
 
 alias lg='lazygit'
+alias tmux='tmux attach-session || tmux'
