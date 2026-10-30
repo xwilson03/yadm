@@ -47,6 +47,8 @@ prompt pure
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+export CGDB_DIR="$HOME/.config/cgdb"
+
 export BUN_INSTALL="$HOME/.bun"
 [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
 
